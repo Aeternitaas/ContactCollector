@@ -29,28 +29,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
-            android:background="#80FFFFFF"
             android:orientation="horizontal"
             tools:ignore="UselessParent">
 
-            <Button android:id="@+id/dummy_button"
+            <Button android:id="@+id/scan_button"
                 style="?metaButtonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="#80ffffff"
+                android:layout_marginRight="3sp"
                 android:text="scan" />
 
-            <Button android:id="@+id/dummy_button_2"
+            <Button android:id="@+id/edit_info_button"
                 style="?metaButtonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="#80ffffff"
+                android:layout_marginRight="3sp"
                 android:text="Edit Info" />
 
-            <Button android:id="@+id/dummy_button_3"
+            <Button android:id="@+id/contacts_button"
                 style="?metaButtonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:background="#80ffffff"
                 android:layout_weight="1"
                 android:text="Contacts" />
 
