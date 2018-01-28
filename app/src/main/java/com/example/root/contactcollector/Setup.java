@@ -2,6 +2,8 @@ package com.example.root.contactcollector;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +11,22 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+
+
+import net.glxn.qrgen.android.QRCode;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.OutputStream;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -80,6 +98,62 @@ public class Setup extends AppCompatActivity {
                 //Do stuff here
             }
         });
+
+        // case where picture exists.
+        if ( QRGenerate() ) {
+
+        }
+    }
+
+    protected boolean QRGenerate() {
+        Info info = this.QRName();
+        if ( info == null ) {
+            System.out.println("Bad output");
+            return false;
+        }
+        try {
+            // Generate user JSON data.
+            JSONObject userData = new JSONObject();
+            JSONObject user = new JSONObject();
+            user.put( "name", info.getName() );
+            user.put( "prefix", info.getPrefix() );
+            user.put( "number", info.getNumber() );
+            user.put( "email", info.getEmail() );
+            user.put( "business", info.getBusiness() );
+            user.put( "website", info.getWebsite() );
+            user.put( "title", info.getTitle() );
+
+            userData.put( "user", user );
+
+            Bitmap myBitmap = QRCode.from(userData.toString()).bitmap();
+            ImageView myImage = (ImageView) findViewById(R.id.fullscreen_content);
+            myImage.setImageBitmap(myBitmap);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            System.out.println("JSON error");
+            return false;
+        }
+        return true;
+    }
+
+    protected Info QRName() {
+        Info userData;
+        try {
+            String filename = "user-info.ser";
+            File file = new File(getFilesDir(), filename);
+            filename = file.getAbsolutePath();
+            ObjectInputStream fis = new ObjectInputStream(new FileInputStream(filename));
+
+            userData = (Info) fis.readObject();
+        } catch (IOException ioe) {
+            System.out.println("No file");
+            userData = null;
+        } catch (ClassNotFoundException e) {
+            System.out.println("No file");
+            userData = null;
+        }
+        return userData;
     }
 
     @Override
