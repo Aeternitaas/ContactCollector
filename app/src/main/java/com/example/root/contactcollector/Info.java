@@ -29,6 +29,10 @@ public class Info implements Serializable{
         this.website = website;
     }
 
+    public Info(){
+
+    }
+
     public String getName(){
         return name;
     }
