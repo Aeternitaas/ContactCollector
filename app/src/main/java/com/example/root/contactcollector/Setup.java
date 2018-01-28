@@ -1,12 +1,14 @@
 package com.example.root.contactcollector;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -35,6 +37,10 @@ public class Setup extends AppCompatActivity {
     private View mControlsView;
     private boolean mVisible;
 
+    private Button btnScan;
+    private Button btnEdit;
+    private Button btnContacts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,10 +60,26 @@ public class Setup extends AppCompatActivity {
             }
         });
 
-        // Upon interacting with UI controls, delay any scheduled hide()
-        // operations to prevent the jarring behavior of controls going away
-        // while interacting with the UI.
-        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+        btnScan = (Button) findViewById(R.id.scan_button);
+        btnEdit = (Button) findViewById(R.id.edit_info_button);
+        btnContacts = (Button) findViewById(R.id.contacts_button);
+
+        btnScan.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                //Do stuff here
+            }
+        });
+        btnEdit.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                Intent changeActivity = new Intent(v.getContext(), Info.class);
+                v.getContext().startActivity(changeActivity);
+            }
+        });
+        btnContacts.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                //Do stuff here
+            }
+        });
     }
 
     @Override
