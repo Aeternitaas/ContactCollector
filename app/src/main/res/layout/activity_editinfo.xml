@@ -36,7 +36,7 @@
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="100sp"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:text="Email" />
 
             <EditText
@@ -45,6 +45,13 @@
                 android:layout_height="100sp"
                 android:inputType="text"
                 android:text="Phone Number" />
+
+            <EditText
+                android:id="@+id/website"
+                android:layout_width="match_parent"
+                android:layout_height="100sp"
+                android:inputType="text"
+                android:text="Website" />
 
             <Button
                 android:id="@+id/save"

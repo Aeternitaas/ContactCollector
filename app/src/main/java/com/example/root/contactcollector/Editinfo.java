@@ -40,14 +40,23 @@ public class Editinfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editinfo);
 
-        final EditText nameedit = (EditText) findViewById(R.id.name);
-        nameedit.setText(temp.getName());
+        final EditText nameEdit = (EditText) findViewById(R.id.name);
+        final EditText emailEdit = (EditText) findViewById(R.id.email);
+        final EditText websiteEdit = (EditText) findViewById(R.id.website);
+        final EditText phoneNumberEdit = (EditText) findViewById(R.id.phone_number);
+        nameEdit.setText(temp.getName());
+        emailEdit.setText(temp.getEmail());
+        websiteEdit.setText(temp.getWebsite());
+        phoneNumberEdit.setText(temp.getNumber());
 
         Button saveButton = (Button) findViewById(R.id.save);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                temp.setName(nameedit.getText().toString());
+                temp.setName(nameEdit.getText().toString());
+                temp.setEmail(emailEdit.getText().toString());
+                temp.setNumber(phoneNumberEdit.getText().toString());
+                temp.setWebsite(websiteEdit.getText().toString());
 
                 try {
                     String filename = "user-info.ser";
