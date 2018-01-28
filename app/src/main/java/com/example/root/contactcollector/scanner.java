@@ -35,10 +35,14 @@ public class scanner extends AppCompatActivity {
 
         // Start barcode scanning intent
         IntentIntegrator scanIntegrator = new IntentIntegrator(this);
-        scanIntegrator.initiateScan();
-
-        formatTxt = (TextView)findViewById(R.id.scan_format);
-        formatTxt.setText( "Addition successful!" );
+        try {
+            scanIntegrator.initiateScan();
+            formatTxt = (TextView)findViewById(R.id.scan_format);
+            formatTxt.setText( "Addition successful!" );
+        } catch ( Exception e ) {
+            formatTxt = (TextView)findViewById(R.id.scan_format);
+            formatTxt.setText( "QR code not scanned!" );
+        }
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
