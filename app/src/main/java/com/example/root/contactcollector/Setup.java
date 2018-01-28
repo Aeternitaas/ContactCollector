@@ -71,7 +71,7 @@ public class Setup extends AppCompatActivity {
         });
         btnEdit.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                Intent changeActivity = new Intent(v.getContext(), Info.class);
+                Intent changeActivity = new Intent(v.getContext(), Editinfo.class);
                 v.getContext().startActivity(changeActivity);
             }
         });
