@@ -95,7 +95,8 @@ public class Setup extends AppCompatActivity {
         });
         btnContacts.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                //Do stuff here
+                Intent changeActivity = new Intent(v.getContext(), contacts.class);
+                v.getContext().startActivity(changeActivity);
             }
         });
 

@@ -41,14 +41,19 @@ public class contacts extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        contacts = new ArrayList<Info>();
-        ArrayAdapter<Info> contactsAdapter = new ArrayAdapter<Info>(this, android.R.layout.simple_list_item_1, contacts);
-
-        ListView listView = (ListView) findViewById(R.id.list_item);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        contacts = new ArrayList<Info>();
+        contacts.add(new Info("Robin", "9176703032", "rxa8448@rit.edu", "", "","", "", ""));
+        ArrayAdapter<Info> contactsAdapter = new ArrayAdapter<Info>(this, android.R.layout.simple_list_item_1, contacts);
+
+        System.out.println(findViewById(R.id.item));
+        ListView listView = (ListView) findViewById(R.id.item);
+        System.out.println("listView " +  listView);
+        listView.setAdapter(contactsAdapter);
+
+
 
     }
 }

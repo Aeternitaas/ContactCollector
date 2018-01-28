@@ -23,6 +23,10 @@
         <activity
             android:name=".Editinfo"
             android:label="@string/title_activity_editinfo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".contacts"
+            android:label="@string/title_activity_contacts"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
