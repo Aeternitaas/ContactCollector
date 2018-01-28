@@ -8,14 +8,14 @@ import java.io.Serializable;
 
 public class Info implements Serializable{
 
-    private String name = "";
-    private String sufix = "";
-    private String prefix = "";
-    private String number = "";
-    private String email = "";
-    private String business = "" ;
-    private String website = "";
-    private String title = "";
+    private String name = "Name";
+    private String sufix = "Sufix";
+    private String prefix = "Prefix";
+    private String number = "Phonenumber";
+    private String email = "Email";
+    private String business = "Business" ;
+    private String website = "Website";
+    private String title = "Title";
 
     public Info(String name, String number, String email, String sufix, String prefix, String business, String website,
                 String title){
