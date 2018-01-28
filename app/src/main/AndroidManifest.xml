@@ -30,6 +30,10 @@
             android:name=".scanner"
             android:label="@string/title_activity_scanner"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".contacts"
+            android:label="@string/title_activity_contacts"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
