@@ -33,7 +33,14 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-//    compile 'net.glxn:qrgen:1.4'
-//    compile 'com.github.kenglxn.QRGen:javase:2.4.0'
+    //    compile 'net.glxn:qrgen:1.4'
+    //    compile 'com.github.kenglxn.QRGen:javase:2.4.0'
     compile 'com.github.kenglxn.QRGen:android:2.2.0'
+    // ZXing
+    // Supports Android 4.0.3 and later.
+    compile 'com.journeyapps:zxing-android-embedded:2.0.1@aar'
+    // Convenience library to launch the scanning and encoding Activities.
+    // It automatically picks the best scanning library from the above two, depending on the
+    // Android version and what is available.
+    compile 'com.journeyapps:zxing-android-integration:2.0.1@aar'
 }

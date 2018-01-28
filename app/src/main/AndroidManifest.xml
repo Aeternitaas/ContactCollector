@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.root.contactcollector">
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" />
 
     <application
         android:allowBackup="true"
@@ -23,6 +25,10 @@
         <activity
             android:name=".Editinfo"
             android:label="@string/title_activity_editinfo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".scanner"
+            android:label="@string/title_activity_scanner"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

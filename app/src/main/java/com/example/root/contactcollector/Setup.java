@@ -1,9 +1,12 @@
 package com.example.root.contactcollector;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,17 +16,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-
 import net.glxn.qrgen.android.QRCode;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.OutputStream;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,6 +60,21 @@ public class Setup extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        int MY_PERMISSIONS_REQUEST_READ_CAMERA = 0;
+
+        // Here, thisActivity is the current activity
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.CAMERA},
+                    MY_PERMISSIONS_REQUEST_READ_CAMERA);
+
+            // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+            // app-defined int constant. The callback method gets the
+            // result of the request.
+        }
 
         setContentView(R.layout.activity_setup);
 
@@ -84,7 +97,8 @@ public class Setup extends AppCompatActivity {
 
         btnScan.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                //Do stuff here
+                Intent changeActivity = new Intent(v.getContext(), scanner.class);
+                v.getContext().startActivity(changeActivity);
             }
         });
         btnEdit.setOnClickListener(new Button.OnClickListener() {
@@ -99,7 +113,7 @@ public class Setup extends AppCompatActivity {
             }
         });
 
-        // case where picture exists.
+        // case where picture exists. TODO: add check
         if ( QRGenerate() ) {
 
         }
