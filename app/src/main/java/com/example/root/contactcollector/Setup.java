@@ -131,6 +131,7 @@ public class Setup extends AppCompatActivity {
             JSONObject userData = new JSONObject();
             JSONObject user = new JSONObject();
             user.put( "name", info.getName() );
+            user.put( "sufix", info.getSufix() );
             user.put( "prefix", info.getPrefix() );
             user.put( "number", info.getNumber() );
             user.put( "email", info.getEmail() );

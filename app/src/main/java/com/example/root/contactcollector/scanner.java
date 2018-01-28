@@ -58,6 +58,7 @@ public class scanner extends AppCompatActivity {
 
                 // parses the information in the QR code from the JSON file
                 String name = (String) qrUser.get( "name" );
+                String sufix = (String) qrUser.get( "sufix" );
                 String prefix = (String) qrUser.get( "prefix" );
                 String number = (String) qrUser.get( "number" );
                 String email = (String) qrUser.get( "email" );
@@ -81,6 +82,7 @@ public class scanner extends AppCompatActivity {
                     JSONObject localUser = new JSONObject();
 
                     // populates the user with a name: jsonObject relation.
+                    localUser.put( "sufix", sufix );
                     localUser.put( "prefix", prefix );
                     localUser.put( "number", number );
                     localUser.put( "email", email );
@@ -90,6 +92,11 @@ public class scanner extends AppCompatActivity {
 
                     // populates the contacts database with the user
                     localContacts.put( name, localUser );
+
+                    FileWriter fw = new FileWriter( file );
+                    fw.write(localContacts.toString());
+                    System.out.println(localContacts.toString());
+                    fw.close();
                 }
                 else {
                     System.out.println( "Doesn't Exist" );
@@ -100,6 +107,7 @@ public class scanner extends AppCompatActivity {
                     JSONObject localUser = new JSONObject();
 
                     // populates the user with a name: jsonObject relation.
+                    localUser.put( "sufix", sufix );
                     localUser.put( "prefix", prefix );
                     localUser.put( "number", number );
                     localUser.put( "email", email );
