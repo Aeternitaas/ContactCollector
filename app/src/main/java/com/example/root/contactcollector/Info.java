@@ -11,7 +11,7 @@ public class Info implements Serializable{
     private String name = "Name";
     private String sufix = "Sufix";
     private String prefix = "Prefix";
-    private String number = "Phonenumber";
+    private String number = "Phone Number";
     private String email = "Email";
     private String business = "Business" ;
     private String website = "Website";
